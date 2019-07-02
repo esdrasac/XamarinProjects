@@ -12,8 +12,7 @@
 		
         <Entry Placeholder="Digite o cep" PlaceholderColor="#498172" BackgroundColor="#000000" x:Name="CEP" 
 			   TextColor="#FFFFFF" FontFamily="{StaticResource NormalFont}" Margin="0,0,0,2"/>
-		
-        <Label x:Name="validacao"/>
+        <Label x:Name="validacao" TextColor="#FFFFFF" FontSize="Small"/>
 		
         <Button Text="BUSCAR CEP" TextColor="#FFFFFF" BackgroundColor="#498172" x:Name="Botao" BorderWidth="0" 
 				FontFamily="{StaticResource NormalFont}" FontSize="Large" FontAttributes="Bold"/>

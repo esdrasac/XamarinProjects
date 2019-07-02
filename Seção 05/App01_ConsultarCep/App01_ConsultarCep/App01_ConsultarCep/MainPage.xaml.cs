@@ -17,34 +17,42 @@ namespace App01_ConsultarCep {
             Botao.Clicked += BuscarCep;
         }
         private void BuscarCep(object sender, EventArgs args) {
-            string cep = CEP.Text.Trim();
-            if(isValid(cep)) {
-                try {
-                    Endereco end = ViaCepServico.BuscarEnderecoViaCep(cep);
-                    if(end != null) {
-                        Resultado.Text = string.Format($"CEP {cep}\n\n{end.logradouro} - {end.bairro} - {end.localidade}/{end.uf}");
+            
+            try {
+                string cep = CEP.Text.Trim();
+                validacao.Text = "";
+                if(isValid(cep)) {
+                    try {
+                        Endereco end = ViaCepServico.BuscarEnderecoViaCep(cep);
+                        if(end != null) {
+                            Resultado.Text = string.Format($"CEP {cep}\n\n{end.logradouro} - {end.bairro} - {end.localidade}/{end.uf}");
+                        }
+                        else {
+                            Resultado.Text = "Não foi encontrado nenhum endereço correspondente ao CEP digitado";
+                        }
                     }
-                    else {
-                        Resultado.Text = "Não foi encontrado nenhum endereço correspondente ao CEP digitado";
+                    catch(Exception e) {
+                        Resultado.Text = "Verifique sua conexão com a internet";
                     }
-                }catch(Exception e) {
-                    Resultado.Text = "Verifique sua conexão com a internet";
+                }
+                else {
+                    CEP.Text = "";
                 }
             }
-            else {
-                CEP.Text = "";
+            catch(Exception i) {
+                validacao.Text = "Digite um CEP";
             }
-        }
+            }
 
-        private bool isValid(string cep){
+        private bool isValid(string cep) {
             bool valido = true;
             if(cep.Length != 8) {
-                Resultado.Text = "CEP inválido\n\nPor favor, digite outro CEP.";
+                validacao.Text = "CEP inválido\n\nPor favor, digite outro CEP.";
                 valido = false;
             }
             int novoCep = 0;
             if(!int.TryParse(cep, out novoCep)) {
-                Resultado.Text = "Use apenas números.";
+                validacao.Text = "Use apenas números.";
 
                 valido = false;
             }
