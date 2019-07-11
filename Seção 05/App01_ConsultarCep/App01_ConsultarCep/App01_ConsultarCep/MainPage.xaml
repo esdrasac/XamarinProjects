@@ -1,25 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App01_ConsultarCep.MainPage">
+             x:Class="App01_ConsultarCep.MainPage"
+             BackgroundColor="#121212">
 
-    <StackLayout BackgroundColor="#000000" Padding="30" Spacing="30">
+    <StackLayout  Padding="30" Spacing="30">
         <!-- Place new controls here -->
         <Image Source="LogoCorreios.png" x:Name="Logo"/>
-		
-        <Entry Placeholder="Digite o cep" PlaceholderColor="#498172" BackgroundColor="#000000" x:Name="CEP" 
-			   TextColor="#FFFFFF" FontFamily="{StaticResource NormalFont}" Margin="0,0,0,2"/>
+
+        <Entry Placeholder="Digite o cep" PlaceholderColor="#FFFFFF"  BackgroundColor="#121212" x:Name="CEP" 
+			   TextColor="#FFFFFF" FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand"/>
         <Label x:Name="validacao" TextColor="#FFFFFF" FontSize="Small"/>
-		
-        <Button Text="BUSCAR CEP" TextColor="#FFFFFF" BackgroundColor="#498172" x:Name="Botao" BorderWidth="0" 
-				FontFamily="{StaticResource NormalFont}" FontSize="Large" FontAttributes="Bold"/>
-		
-        <Label Text="" x:Name="Resultado"
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" FontSize="Large" TextColor="#FFFFFF"/>
+        <Label Text="" x:Name="Resultado" IsVisible="False" BackgroundColor="Transparent"
+           FontSize="Large" TextColor="#FFFFFF" />
+        <Button Text="BUSCAR CEP" TextColor="#FFFFFF" BorderRadius="5" BackgroundColor="#1ED760" x:Name="Botao"  
+				FontFamily="{StaticResource NormalFont}" FontSize="Large" FontAttributes="Bold"  CornerRadius="45"/>
+
+        
     </StackLayout>
 
 </ContentPage> 

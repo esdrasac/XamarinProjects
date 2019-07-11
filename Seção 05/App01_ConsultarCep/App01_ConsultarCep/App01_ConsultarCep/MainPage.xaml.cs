@@ -25,7 +25,9 @@ namespace App01_ConsultarCep {
                     try {
                         Endereco end = ViaCepServico.BuscarEnderecoViaCep(cep);
                         if(end != null) {
+                            Resultado.IsVisible = true;
                             Resultado.Text = string.Format($"CEP {cep}\n\n{end.logradouro} - {end.bairro} - {end.localidade}/{end.uf}");
+
                         }
                         else {
                             Resultado.Text = "Não foi encontrado nenhum endereço correspondente ao CEP digitado";
